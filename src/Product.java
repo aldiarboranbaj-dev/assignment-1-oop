@@ -1,49 +1,33 @@
-public class Product {
-    private String name;
-    private double price;
+public class Product extends item {
+    private String category;
+    private String brand;
     private int quantity;
 
-    public Product(String name, double price, int quantity) {
-        this.name = name;
-        this.price = price;
+    public Product(String name, double price, int quantity, String category, String brand) {
+        super(name, price);
         this.quantity = quantity;
+        this.category = category;
+        this.brand = brand;
     }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    public String getName() {
-        return name;
-    }
+        @Override
+        public void printInfo() {
+            System.out.println("Product: " + getName() +
+                    ", Brand: " + brand +
+                    ", Category: " + category +
+                    ", Price: " + getPrice() +
+                    ", Quantity: " + quantity);
+        }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public void printInfo() {
-        System.out.println(" Product name: " + name + " price; " + price + " Quantity; " + quantity);
-    }
-
-    public void comparePrice(Product other) {
-        if (this.price > other.price) {
-            System.out.println(this.name + " is more expensive than " + other.name);
-        } else if (this.price < other.price) {
-            System.out.println(this.name + " is cheaper than " + other.name);
+        public void comparePrice(Product other) {
+        if (getPrice() > other.getPrice()) {
+            System.out.println(getName() + " is more expensive than " + other.getName());
+        } else if (getPrice() < other.getPrice()) {
+            System.out.println(getName() + " is cheaper than " + other.getName());
         } else {
-            System.out.println(this.name + " and " + other.name + " have the same price ");
+            System.out.println(getName() + " and " + other.getName() + " have the same price");
         }
     }
 }
