@@ -34,5 +34,24 @@ public class Main {
         String sort = scanner.nextLine();
         inventory.sortByPrice(sort.equalsIgnoreCase("yes"));
         inventory.printInventory();
+        // ---------- DATABASE CRUD DEMO ----------
+        System.out.println("\n--- DATABASE CRUD ---");
+
+        // CREATE (INSERT)
+        InventoryDB.addProduct(product1);
+        InventoryDB.addProduct(product2);
+
+        // READ (SELECT)
+        System.out.println("\n--- Products from DB ---");
+        for (Product p : InventoryDB.getAllProducts()) {
+            p.printInfo();
+        }
+
+        // UPDATE
+        InventoryDB.updateProductPrice(1, 9999);
+
+        // DELETE
+        InventoryDB.deleteProduct(2);
+
     }
 }

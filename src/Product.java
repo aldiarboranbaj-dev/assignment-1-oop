@@ -11,8 +11,16 @@ public class Product extends item {
     }
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
+    public String getBrand() {
+        return brand;
+    }
 
-        @Override
+    public String getCategory() {
+        return category;
+    }
+
+
+    @Override
         public void printInfo() {
             System.out.println("Product: " + getName() +
                     ", Brand: " + brand +
